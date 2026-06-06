@@ -43,7 +43,7 @@
 static GLuint bitmapBase;
 void APIENTRY auxDrawStrAW(LPCSTR str, BOOL bUnicode);
 
-void auxCreateFont(void)
+void APIENTRY auxCreateFont(void)
 {
     bitmapBase = glGenLists(256);
     if (tkCreateBitmapFont(bitmapBase) == GL_FALSE) {

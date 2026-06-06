@@ -111,7 +111,7 @@ static void pentagon(int, int, int, int, int, GLenum);
 /*  Render wire frame or solid sphere.  If no display list with
  *  the current model size exists, create a new display list.
  */
-void auxWireSphere (GLdouble radius)
+void APIENTRY auxWireSphere (GLdouble radius)
 {
     GLUquadricObj *quadObj;
     GLdouble *sizeArray;
@@ -137,7 +137,7 @@ void auxWireSphere (GLdouble radius)
     }
 }
 
-void auxSolidSphere (GLdouble radius)
+void APIENTRY auxSolidSphere (GLdouble radius)
 {
     GLUquadricObj *quadObj;
     GLdouble *sizeArray;
@@ -167,7 +167,7 @@ void auxSolidSphere (GLdouble radius)
 /*  Render wire frame or solid cube.  If no display list with
  *  the current model size exists, create a new display list.
  */
-void auxWireCube (GLdouble size)
+void APIENTRY auxWireCube (GLdouble size)
 {
     GLdouble *sizeArray;
     GLuint displayList;
@@ -191,7 +191,7 @@ void auxWireCube (GLdouble size)
     }
 }
 
-void auxSolidCube (GLdouble size)
+void APIENTRY auxSolidCube (GLdouble size)
 {
     GLdouble *sizeArray;
     GLuint displayList;
@@ -218,7 +218,7 @@ void auxSolidCube (GLdouble size)
 /*  Render wire frame or solid cube.  If no display list with
  *  the current model size exists, create a new display list.
  */
-void auxWireBox (GLdouble width, GLdouble height, GLdouble depth)
+void APIENTRY auxWireBox (GLdouble width, GLdouble height, GLdouble depth)
 {
     GLdouble *sizeArray, *tmp;
     GLuint displayList;
@@ -245,7 +245,7 @@ void auxWireBox (GLdouble width, GLdouble height, GLdouble depth)
     }
 }
 
-void auxSolidBox (GLdouble width, GLdouble height, GLdouble depth)
+void APIENTRY auxSolidBox (GLdouble width, GLdouble height, GLdouble depth)
 {
     GLdouble *sizeArray, *tmp;
     GLuint displayList;
@@ -275,7 +275,7 @@ void auxSolidBox (GLdouble width, GLdouble height, GLdouble depth)
 /*  Render wire frame or solid tori.  If no display list with
  *  the current model size exists, create a new display list.
  */
-void auxWireTorus (GLdouble innerRadius, GLdouble outerRadius)
+void APIENTRY auxWireTorus (GLdouble innerRadius, GLdouble outerRadius)
 {
     GLdouble *sizeArray, *tmp;
     GLuint displayList;
@@ -300,7 +300,7 @@ void auxWireTorus (GLdouble innerRadius, GLdouble outerRadius)
     }
 }
 
-void auxSolidTorus (GLdouble innerRadius, GLdouble outerRadius)
+void APIENTRY auxSolidTorus (GLdouble innerRadius, GLdouble outerRadius)
 {
     GLdouble *sizeArray, *tmp;
     GLuint displayList;
@@ -328,7 +328,7 @@ void auxSolidTorus (GLdouble innerRadius, GLdouble outerRadius)
 /*  Render wire frame or solid cylinders.  If no display list with
  *  the current model size exists, create a new display list.
  */
-void auxWireCylinder (GLdouble radius, GLdouble height)
+void APIENTRY auxWireCylinder (GLdouble radius, GLdouble height)
 {
     GLUquadricObj *quadObj;
     GLdouble *sizeArray, *tmp;
@@ -360,7 +360,7 @@ void auxWireCylinder (GLdouble radius, GLdouble height)
     }
 }
 
-void auxSolidCylinder (GLdouble radius, GLdouble height)
+void APIENTRY auxSolidCylinder (GLdouble radius, GLdouble height)
 {
     GLUquadricObj *quadObj;
     GLdouble *sizeArray, *tmp;
@@ -396,7 +396,7 @@ void auxSolidCylinder (GLdouble radius, GLdouble height)
 /*  Render wire frame or solid icosahedra.  If no display list with
  *  the current model size exists, create a new display list.
  */
-void auxWireIcosahedron (GLdouble radius)
+void APIENTRY auxWireIcosahedron (GLdouble radius)
 {
     GLdouble *sizeArray;
     GLuint displayList;
@@ -420,7 +420,7 @@ void auxWireIcosahedron (GLdouble radius)
     }
 }
 
-void auxSolidIcosahedron (GLdouble radius)
+void APIENTRY auxSolidIcosahedron (GLdouble radius)
 {
     GLdouble *sizeArray;
     GLuint displayList;
@@ -447,7 +447,7 @@ void auxSolidIcosahedron (GLdouble radius)
 /*  Render wire frame or solid octahedra.  If no display list with
  *  the current model size exists, create a new display list.
  */
-void auxWireOctahedron (GLdouble radius)
+void APIENTRY auxWireOctahedron (GLdouble radius)
 {
     GLdouble *sizeArray;
     GLuint displayList;
@@ -471,7 +471,7 @@ void auxWireOctahedron (GLdouble radius)
     }
 }
 
-void auxSolidOctahedron (GLdouble radius)
+void APIENTRY auxSolidOctahedron (GLdouble radius)
 {
     GLdouble *sizeArray;
     GLuint displayList;
@@ -498,7 +498,7 @@ void auxSolidOctahedron (GLdouble radius)
 /*  Render wire frame or solid tetrahedra.  If no display list with
  *  the current model size exists, create a new display list.
  */
-void auxWireTetrahedron (GLdouble radius)
+void APIENTRY auxWireTetrahedron (GLdouble radius)
 {
     GLdouble *sizeArray;
     GLuint displayList;
@@ -522,7 +522,7 @@ void auxWireTetrahedron (GLdouble radius)
     }
 }
 
-void auxSolidTetrahedron (GLdouble radius)
+void APIENTRY auxSolidTetrahedron (GLdouble radius)
 {
     GLdouble *sizeArray;
     GLuint displayList;
@@ -549,7 +549,7 @@ void auxSolidTetrahedron (GLdouble radius)
 /*  Render wire frame or solid dodecahedra.  If no display list with
  *  the current model size exists, create a new display list.
  */
-void auxWireDodecahedron (GLdouble radius)
+void APIENTRY auxWireDodecahedron (GLdouble radius)
 {
     GLdouble *sizeArray;
     GLuint displayList;
@@ -573,7 +573,7 @@ void auxWireDodecahedron (GLdouble radius)
     }
 }
 
-void auxSolidDodecahedron (GLdouble radius)
+void APIENTRY auxSolidDodecahedron (GLdouble radius)
 {
     GLdouble *sizeArray;
     GLuint displayList;
@@ -600,7 +600,7 @@ void auxSolidDodecahedron (GLdouble radius)
 /*  Render wire frame or solid cones.  If no display list with
  *  the current model size exists, create a new display list.
  */
-void auxWireCone (GLdouble base, GLdouble height)
+void APIENTRY auxWireCone (GLdouble base, GLdouble height)
 {
     GLUquadricObj *quadObj;
     GLdouble *sizeArray, *tmp;
@@ -628,7 +628,7 @@ void auxWireCone (GLdouble base, GLdouble height)
     }
 }
 
-void auxSolidCone (GLdouble base, GLdouble height)
+void APIENTRY auxSolidCone (GLdouble base, GLdouble height)
 {
     GLUquadricObj *quadObj;
     GLdouble *sizeArray, *tmp;

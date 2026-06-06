@@ -206,65 +206,65 @@ static GLenum KeyDown(int key, GLenum status)
     return flag;
 }
 
-void auxExposeFunc(AUXEXPOSEPROC Func)
+void APIENTRY auxExposeFunc(AUXEXPOSEPROC Func)
 {
-    tkExposeFunc(Func);
+    tkExposeFunc((void (*)(int, int))Func);
 }
 
-void auxReshapeFunc(AUXRESHAPEPROC Func)
+void APIENTRY auxReshapeFunc(AUXRESHAPEPROC Func)
 {
     tkExposeFunc((void (*)(int, int))Func);
     tkReshapeFunc((void (*)(int, int))Func);
 }
 
-void auxIdleFunc(AUXIDLEPROC Func)
+void APIENTRY auxIdleFunc(AUXIDLEPROC Func)
 {
-    tkIdleFunc(Func);
+    tkIdleFunc((void (*)(void))Func);
 }
 
-void auxKeyFunc(int key, AUXKEYPROC Func)
+void APIENTRY auxKeyFunc(int key, AUXKEYPROC Func)
 {
     keyTable[keyTableCount].keyField = key;
-    keyTable[keyTableCount++].KeyFunc = Func;
+    keyTable[keyTableCount++].KeyFunc = (void (*)(void))Func;
 }
 
-void auxMouseFunc(int mouse, int mode, AUXMOUSEPROC Func)
+void APIENTRY auxMouseFunc(int mouse, int mode, AUXMOUSEPROC Func)
 {
     if (mode == AUX_MOUSEDOWN) {
 	mouseDownTable[mouseDownTableCount].mouseField = mouse;
-	mouseDownTable[mouseDownTableCount++].MouseFunc = Func;
+	mouseDownTable[mouseDownTableCount++].MouseFunc = (void (*)(AUX_EVENTREC *))Func;
     } else if (mode == AUX_MOUSEUP) {
 	mouseUpTable[mouseUpTableCount].mouseField = mouse;
-	mouseUpTable[mouseUpTableCount++].MouseFunc = Func;
+	mouseUpTable[mouseUpTableCount++].MouseFunc = (void (*)(AUX_EVENTREC *))Func;
     } else if (mode == AUX_MOUSELOC) {
 	mouseLocTable[mouseLocTableCount].mouseField = mouse;
-	mouseLocTable[mouseLocTableCount++].MouseFunc = Func;
+	mouseLocTable[mouseLocTableCount++].MouseFunc = (void (*)(AUX_EVENTREC *))Func;
     } 
 }
 
-void auxMainLoop(AUXMAINPROC Func)
+void APIENTRY auxMainLoop(AUXMAINPROC Func)
 {
-    tkDisplayFunc(Func);
+    tkDisplayFunc((void (*)(void))Func);
     tkExec();
 }
 
-void auxInitPosition(int x, int y, int width, int height)
+void APIENTRY auxInitPosition(int x, int y, int width, int height)
 {
     tkInitPosition(x, y, width, height);
 }
 
-void auxInitDisplayMode(GLenum type)
+void APIENTRY auxInitDisplayMode(GLenum type)
 {
     displayModeType = type;
     tkInitDisplayMode(type);
 }
 
-void auxInitDisplayModePolicy(GLenum type)
+void APIENTRY auxInitDisplayModePolicy(GLenum type)
 {
     tkInitDisplayModePolicy(type);
 }
 
-GLenum auxInitDisplayModeID(GLint id)
+GLenum APIENTRY auxInitDisplayModeID(GLint id)
 {
     return tkInitDisplayModeID(id);
 }
@@ -312,7 +312,7 @@ GLenum APIENTRY auxInitWindowAW(LPCSTR title, BOOL bUnicode)
     return GL_TRUE;
 }
 
-void auxCloseWindow(void)
+void APIENTRY auxCloseWindow(void)
 {
     tkCloseWindow();
     keyTableCount = 0;
@@ -321,72 +321,72 @@ void auxCloseWindow(void)
     mouseLocTableCount = 0;
 }
 
-void auxQuit(void)
+void APIENTRY auxQuit(void)
 {
     tkQuit();
 }
 
-void auxSwapBuffers(void)
+void APIENTRY auxSwapBuffers(void)
 {
     tkSwapBuffers();
 }
 
-HWND auxGetHWND(void)
+HWND APIENTRY auxGetHWND(void)
 {
     return tkGetHWND();
 }
 
-HDC auxGetHDC(void)
+HDC APIENTRY auxGetHDC(void)
 {
     return tkGetHDC();
 }
 
-HGLRC auxGetHGLRC(void)
+HGLRC APIENTRY auxGetHGLRC(void)
 {
     return tkGetHRC();
 }
 
-GLenum auxGetDisplayModePolicy(void)
+GLenum APIENTRY auxGetDisplayModePolicy(void)
 {
     return tkGetDisplayModePolicy();
 }
 
-GLint auxGetDisplayModeID(void)
+GLint APIENTRY auxGetDisplayModeID(void)
 {
     return tkGetDisplayModeID();
 }
 
-GLenum auxGetDisplayMode(void)
+GLenum APIENTRY auxGetDisplayMode(void)
 {
     return tkGetDisplayMode();
 }
 
-void auxSetOneColor(int index, float r, float g, float b)
+void APIENTRY auxSetOneColor(int index, float r, float g, float b)
 {
     tkSetOneColor(index, r, g, b);
 }
 
-void auxSetFogRamp(int density, int startIndex)
+void APIENTRY auxSetFogRamp(int density, int startIndex)
 {
     tkSetFogRamp(density, startIndex);
 }
 
-void auxSetGreyRamp(void)
+void APIENTRY auxSetGreyRamp(void)
 {
     tkSetGreyRamp();
 }
 
-void auxSetRGBMap(int size, float *rgb)
+void APIENTRY auxSetRGBMap(int size, float *rgb)
 {
     tkSetRGBMap(size, rgb);
 }
 
-int auxGetColorMapSize(void)
+int APIENTRY auxGetColorMapSize(void)
 {
     return tkGetColorMapSize();
 }
 
-void auxGetMouseLoc(int *x, int *y)
+void APIENTRY auxGetMouseLoc(int *x, int *y)
 {
     tkGetMouseLoc(x, y);
 }

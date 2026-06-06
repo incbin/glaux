@@ -144,14 +144,14 @@ static void wireTeapot(long grid, GLdouble scale)
     glEndList();
 }
 
-void auxSolidTeapot(GLdouble scale)
+void APIENTRY auxSolidTeapot(GLdouble scale)
 {
     if (glIsList(teapots[TEAPOTSOLID]) == 0)
 	solidTeapot (14, scale);
     glCallList(teapots[TEAPOTSOLID]);
 }
 
-void auxWireTeapot(GLdouble scale)
+void APIENTRY auxWireTeapot(GLdouble scale)
 {
     if (glIsList(teapots[TEAPOTWIRE]) == 0)
 	wireTeapot (10, scale);
